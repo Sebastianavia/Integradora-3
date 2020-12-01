@@ -75,8 +75,7 @@ public class Main{
 			System.out.println(message);
 			break;	
 		case 8:
-			 //message = club.showTeam();
-			 //System.out.println(message);
+			 showTeam();
 			
 			break;
 
@@ -194,18 +193,25 @@ public class Main{
 		
 	}
 
-	/*public void chooseFormaion(){
-
-		System.out.println("Choose the formation")
-		System.out.println("4,3,3  |  4,4,2   |   4,5,1   |   5,3,2   |    4,3,1,2    |    4,2,2,2")
-
-	}*/
 	public void showEmployee(){
 		System.out.println("write the employee name ");
 		String name=sc.nextLine();
 		String message = club.showEmployee(name);
 		System.out.println(message);
 
+	}
+
+	public void showTeam() {
+		System.out.println("To teamA choose 1, or 2 for teamB");
+		int number = sc.nextInt();
+		String message = club.showTeam(number);
+		System.out.println(message);
+
+	}
+	
+	public void ingresalineup() {
+		System.out.println("");
+		
 	}
 
 

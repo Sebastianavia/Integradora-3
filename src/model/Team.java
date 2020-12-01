@@ -62,13 +62,24 @@ public class Team {
 		}
 
 
-		public String toString(){
-			String message;
-			message=
-			"\n **********Team***********" +
-			
-			return message;
+		public String showTeam() {
+		String message ="\n *************"+
+						"\n **Employess**"+
+						"\n *************";
+						
+		message += "head coach: " + coach.toString();
+		for(int i=0; i <MAX_ASSISTANTCOACH; i++ ) {
+			if(assistents != null) {
+			message +="\n Asistans coach: "+assistents[i].toString();
+			}
+		}
+		for(int i=0; i <MAX_PLAYERS; i++ ) {
+			if(players !=null) {
+			message +="\n player: "+players[i].toString();
+			}
+		}
+		
+		return message;
 	}
-
 
 }

@@ -191,16 +191,19 @@ public class FootballClub{
 		return message;
 	}
 
-	/*public String showTeam(){
+	public String showTeam(int number){
+		Team team;
 		String message="";
-		if (teams[0]=!null){
-			message =(teams[0].get(i));
-		}else{
-			message ="The team dont exist";
-		}
-	return message;
+	if(number == 1) {
+		 
+		 message+=teams[0].toString();
+		 
+	}else {
+		message+=teams[1].toString();
 	}
-
+	
+	return message;
+}
 	
 	
 }
