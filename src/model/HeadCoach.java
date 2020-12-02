@@ -13,6 +13,25 @@ public class HeadCoach extends Coach implements Nivel,Precio{
 		this.precio=calcularMercado();
 		this.nivel=calcularNivel();
 	}
+	public int getChampionships() {
+		return championships;
+	}
+
+
+	public void setChampionships(int championships) {
+		this.championships = championships;
+	}
+
+
+	public int getNumbersTeams() {
+		return numbersTeams;
+	}
+
+
+	public void setNumbersTeams(int numbersTeams) {
+		this.numbersTeams = numbersTeams;
+	}
+
 
 
 public double calcularMercado(){

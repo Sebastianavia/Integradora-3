@@ -8,6 +8,9 @@ public class Coach extends Employee{
 	super(name,id,salary);
 	this.yearsExperience=yearsExperience;
 	}
+	public void setYearsExperience(int yearsExperience) {
+		this.yearsExperience = yearsExperience;
+	}
 
 	@Override
 	public String toString(){

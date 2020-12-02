@@ -66,15 +66,16 @@ public class Team {
 		String message ="\n *************"+
 						"\n **Employess**"+
 						"\n *************";
-						
-		message += "head coach: " + coach.toString();
+		if(coach != null){			
+			message += "head coach: " + coach.toString();
+		}
 		for(int i=0; i <MAX_ASSISTANTCOACH; i++ ) {
-			if(assistents != null) {
+			if(assistents[i] != null) {
 			message +="\n Asistans coach: "+assistents[i].toString();
 			}
 		}
 		for(int i=0; i <MAX_PLAYERS; i++ ) {
-			if(players !=null) {
+			if(players[i] !=null) {
 			message +="\n player: "+players[i].toString();
 			}
 		}

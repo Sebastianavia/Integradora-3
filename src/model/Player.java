@@ -23,6 +23,53 @@ public class Player extends Employee implements Nivel,Precio{
 	this.nivel=calcularNivel();
 
 	}
+	public int getDorsal() {
+		return dorsal;
+	}
+
+	public void setDorsal(int dorsal) {
+		this.dorsal = dorsal;
+	}
+
+	public int getGoals() {
+		return goals;
+	}
+
+	public void setGoals(int goals) {
+		this.goals = goals;
+	}
+
+	public double getRating() {
+		return rating;
+	}
+
+	public void setRating(double rating) {
+		this.rating = rating;
+	}
+
+	public double getNivel() {
+		return nivel;
+	}
+
+	public void setNivel(double nivel) {
+		this.nivel = nivel;
+	}
+
+	public double getPrecio() {
+		return precio;
+	}
+
+	public void setPrecio(double precio) {
+		this.precio = precio;
+	}
+
+	public Position getPosition() {
+		return position;
+	}
+
+	public void setPosition(String position) {
+		this.position = Position.valueOf(position);
+	}
 
 	public double calcularMercado(){
 		double precio=0;

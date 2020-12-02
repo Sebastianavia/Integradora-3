@@ -13,6 +13,7 @@ public class FootballClub{
 
 	//relatinship
 	private Team[] teams;
+	private Lineup[][] lineup;
 
 	//Constructor
 
@@ -26,6 +27,7 @@ public class FootballClub{
 		teams = new Team [2];
 		teams[0]=new Team ("TeamA");
 		teams[1]=new Team ("TeamB");
+		int [][]lineup = new int [Lineup.ROWS_IN__LINEUP][Lineup.COLUMNS_IN_LINEUP];
 	}
 
 	//gets method
@@ -162,6 +164,231 @@ public class FootballClub{
 		return message;
 	}
 
+//_________________________________________________modify name element__________
+	public String modifyname(String name, int option, String newname) {
+		String message = "";		
+		Employee objSearch=findEmployee(name);
+		if(objSearch ==null){
+			message = "dont exist the employee";
+		}else{
+			if(option == 1) {
+				
+				objSearch.setName(newname);
+				message = "The element is modifycate";
+							
+			}
+		}
+		return message;
+	}
+	
+	//_________________________________________________modify id element__________
+	
+	public String modifyid(String name, int option, String newid) {
+		String message = "";		
+		Employee objSearch=findEmployee(name);
+		if(objSearch ==null){
+			message = "dont exist the employee";
+		}else{
+			if(option == 2) {
+				
+				objSearch.setId(newid);
+				message = "The element is modifycate";
+				
+			}
+		}
+		return message;
+	}
+	
+	//_________________________________________________modify salary element__________
+	
+		public String modifysalary(String name, int option, double newsalary) {
+			String message = "";		
+			Employee objSearch=findEmployee(name);
+			if(objSearch ==null){
+				message = "dont exist the employee";
+			}else{
+				if(option == 3) {
+							objSearch.setSalary(newsalary);
+							message = "The element is modifycate";
+				}
+			}
+			return message;
+		}
+		
+		
+		//_________________________________________________modify years experience element__________
+		
+			public String modifyYears(String name, int option, int newyears) {
+				String message = "";		
+				Employee objSearch=findEmployee(name);
+				
+				if(objSearch ==null){
+					message = "dont exist the employee";
+				}else{
+					if(option == 4 ) {
+						
+						((Coach)objSearch).setYearsExperience(newyears);
+						message = "The element is modifycate";
+
+					}
+				}
+				return message;
+			}
+			
+			
+			//_________________________________________________modify teams element__________
+			
+			public String modifyteams(String name, int option, int newteams) {
+				String message = "";		
+				Employee objSearch=findEmployee(name);
+				
+				if(objSearch ==null){
+					message = "dont exist the employee";
+				}else{
+					if(option == 5) {
+						
+						((HeadCoach)objSearch).setNumbersTeams(newteams);
+						message = "The element is modifycate";
+
+					}
+				}
+				return message;
+			}
+//_________________________________________________modify champions element__________
+			
+			public String modifychampions(String name, int option, int newchampions) {
+				String message = "";		
+				Employee objSearch=findEmployee(name);
+				
+				if(objSearch ==null){
+					message = "dont exist the employee";
+				}else{
+					if(option == 6) {
+						
+						((HeadCoach)objSearch).setChampionships(newchampions);
+						message = "The element is modifycate";
+
+					}
+				}
+				return message;
+			}
+					
+			
+			
+//_________________________________________________modify former element__________
+			
+			public String modifyformer(String name, int option, String newcformer) {
+				String message = "";		
+				Employee objSearch=findEmployee(name);
+				
+				if(objSearch ==null){
+					message = "dont exist the employee";
+				}else{
+					if(option == 7) {
+						
+						((AssistantCoach)objSearch).setExPlayer(newcformer);
+						message = "The element is modifycate";
+
+					}
+				}
+				return message;
+			}
+			
+//_________________________________________________modify former element__________
+			
+			public String modifyfexpertice(String name, int option, String newexpertice) {
+				String message = "";		
+				Employee objSearch=findEmployee(name);
+				
+				if(objSearch ==null){
+					message = "dont exist the employee";
+				}else{
+					if(option == 8) {
+						
+						((AssistantCoach)objSearch).setExpertise(newexpertice);
+						message = "The element is modifycate";
+
+					}
+				}
+				return message;
+			}
+			
+//________________________________________________modify former element__________
+			
+			public String modifynumber(String name, int option, int newnumber) {
+				String message = "";		
+				Employee objSearch=findEmployee(name);
+				
+				if(objSearch ==null){
+					message = "dont exist the employee";
+				}else{
+					if(option == 9) {
+						
+						((Player)objSearch).setDorsal(newnumber);
+						message = "The element is modifycate";
+
+					}
+				}
+				return message;
+			}
+			
+			
+//____________________________________modify position__________________________
+			public String modifyposition(String name, int option, String newposition) {
+				String message = "";		
+				Employee objSearch=findEmployee(name);
+				
+				if(objSearch ==null){
+					message = "dont exist the employee";
+				}else{
+					if(option == 10) {
+						
+						((Player)objSearch).setPosition(newposition);
+						message = "The element is modifycate";
+
+					}
+				}
+				return message;
+			}
+			
+			
+			
+//____________________________________modify position__________________________
+			public String modifygoals(String name, int option, int newgoals) {
+				String message = "";		
+				Employee objSearch=findEmployee(name);
+				
+				if(objSearch ==null){
+					message = "dont exist the employee";
+				}else{
+					if(option == 11) {
+						
+						((Player)objSearch).setGoals(newgoals);
+						message = "The element is modifycate";
+
+					}
+				}
+				return message;
+			}
+			
+	//____________________________________modify position__________________________
+			public String modifyRating(String name, int option, double newrating) {
+				String message = "";		
+				Employee objSearch=findEmployee(name);
+				
+				if(objSearch ==null){
+					message = "dont exist the employee";
+				}else{
+					if(option == 12) {
+						
+						((Player)objSearch).setRating(newrating);
+						message = "The element is modifycate";
+
+					}
+				}
+				return message;
+			}
+
 	public String showEmployee(String name){
 		String message="";
 		Employee objemployee = findEmployee(name);
@@ -192,7 +419,7 @@ public class FootballClub{
 	}
 
 	public String showTeam(int number){
-		Team team;
+		Team team = null;
 		String message="";
 	if(number == 1) {
 		 

@@ -18,6 +18,10 @@ public  Employee(String name, String id, double salary){
 public String getName() {
 	return name;
 }
+
+public double getSalary(){
+	return salary;
+}
 //set method
 public void setName(String name) {
 	this.name = name;
@@ -27,8 +31,12 @@ public void setStatus(String status) {
 	this.status = status;
 }
 
-public double getSalary(){
-	return salary;
+public void setSalary(double salary) {
+	this.salary = salary;
+}
+
+public void setId(String id) {
+	this.id = id;
 }
 
 @Override

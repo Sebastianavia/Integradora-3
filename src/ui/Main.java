@@ -34,8 +34,8 @@ public class Main{
 			"(1) to register employees\n"+
 			"(2) to dismiss employee\n"+
 			"(3) to add player to team\n"+
-			"(4) to \n" + 
-			"(5) to \n" +  
+			"(4) to \n" + //create a line up
+			"(5) to modify employees\n" +  
 			"(6) to show de the employee inforamtions about one person\n" +  
 			"(7) to show the all information about employees\n" +  
 			"(8) to show the all information about the team\n" +
@@ -65,7 +65,7 @@ public class Main{
 			
 			break;
 		case 5:
-			
+			modifyElemnt();
 			break;
 		case 6:
 			showEmployee();
@@ -78,7 +78,18 @@ public class Main{
 			 showTeam();
 			
 			break;
+		case 9:
 
+			break;
+		case 10:
+
+			break;
+		case 11:
+
+			break;
+		case 12:
+
+			break;
 		default:
 			System.out.println("Invalid option");
 		}
@@ -214,7 +225,102 @@ public class Main{
 		
 	}
 
+	public void createlineup() {
+		System.out.println("Line up");
+		System.out.println("Write the line up date");
+		String date =sc.nextLine();
+		System.out.println("Write the line up");
+		System.out.println("How many deffensives players");
+		int deffensive = sc.nextInt();
+		System.out.println("How many midfelder");
+		int midfelder = sc.nextInt();
+		System.out.println("How many forward");
+		int forward = sc.nextInt();
+		
+	}
 
+
+	public void modifyElemnt() {
+		
+		int option;
+		
+		
+		System.out.println("modify element");
+		System.out.println("write the name of the employee you want to modify");
+		String name = sc.nextLine();
+		System.out.println("What information, do you want to modify?");
+		System.out.println("\n Choose 1 to modify the name, 2 for the id, 3 for the salary."+
+							"\n if is a coach write 4 to modify years experience. "+
+							"\n if is a head coach, choose 5 to modify teams in charge or 6 to modify championship won"+
+							"\n if is a assistant coach, choose 7 to modify the former football player (yes/no) or 8 is you want modifythe expertice"+
+							"\n if is  a player, choose 9 to modify player number, 10 to modify de position, 11 to modify goals or 12 to modify rating"+
+							"\n choose 0 to leave");
+		
+		option = sc.nextInt();sc.nextLine();
+		
+		switch(option) {
+		case 1:
+		System.out.println("Write the new name");	
+		String newname = sc.nextLine();
+		System.out.println(club.modifyname( name, option,  newname));
+			break;
+		case 2:
+		System.out.println("Write the new id");
+		String newid= sc.nextLine();
+		System.out.println(club.modifyid(name, option, newid));
+			break;
+		case 3:
+		System.out.println("Write the new salary");
+		double newsalary = sc.nextDouble();
+		System.out.println(club. modifysalary( name,option, newsalary));
+			break;
+		case 4:
+		System.out.println("Write the new years experience");
+		int newyears = sc.nextInt();sc.nextLine();
+		System.out.println(club. modifyYears( name,  option,  newyears));
+			break;
+		case 5:
+		System.out.println("Write the new teams in charge");
+		int newteams = sc.nextInt();sc.nextLine();
+		System.out.println(club.modifyteams(name,  option, newteams));
+			break;
+		case 6:
+		System.out.println("Write the new championschip won");
+		int newchampions = sc.nextInt();sc.nextLine();
+		System.out.println(club.modifychampions(name, option,  newchampions));
+			break;
+		case 7:
+		System.out.println("Write the new former player (yes/no)");
+		String newcformer = sc.nextLine();
+		System.out.println(club.modifyformer( name,  option,  newcformer));			
+			break;
+		case 8:
+		System.out.println("Write the new expertice(OFFENSIVE, DEFENSIVE, POSSESSION,LAB_PLAY)");
+		String newexpertice = sc.nextLine();
+		System.out.println(club.modifyfexpertice(name, option, newexpertice));
+			break;
+		case 9:
+		System.out.println("Write the new player number");
+		int newnumber = sc.nextInt();sc.nextLine();
+		System.out.println(club.modifynumber( name, option, newnumber));
+			break;
+		case 10:
+		System.out.println("Write the new position (GOALKEEPER, DEFENDER, MIDFIELDER, FORWARD)");
+		String newposition = sc.nextLine().toUpperCase();
+		System.out.println(club.modifyposition( name,  option,  newposition));
+			break;
+		case 11:
+		System.out.println("Write the new goals");
+		int newgoals = sc.nextInt();sc.nextLine();
+		System.out.println(club.modifygoals( name,  option, newgoals));
+			break;
+		case 12:
+		System.out.println("Write the new rating");
+		double newrating = sc.nextDouble();sc.nextLine();
+		System.out.println(club.modifyRating( name, option, newrating));
+			break;	
+		}	
+	}//cierra el metodo modificar
 
 
 

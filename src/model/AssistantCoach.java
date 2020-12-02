@@ -11,6 +11,21 @@ public class AssistantCoach extends Coach{
 		this.exPlayer=exPlayer;
 		this.expertise=Expertise.valueOf(expertise);
 	}
+	public String getExPlayer() {
+		return exPlayer;
+	}
+
+	public void setExPlayer(String exPlayer) {
+		this.exPlayer = exPlayer;
+	}
+
+	public Expertise getExpertise() {
+		return expertise;
+	}
+
+	public void setExpertise(String expertise) {
+		this.expertise = Expertise.valueOf(expertise);
+	}
 
 	@Override
 	public String toString(){
