@@ -24,7 +24,11 @@ public class Main{
 		}while (option!=0);
 	}
 		
-
+	/**
+	 * prints on screen the options to use the application <br>
+	 * <b> pre: we need the user to choose what action to perform </b> 
+	 * @return the number chosen by the user
+	 */
 	public int showMenu() {
 		
 		int option=0;
@@ -33,12 +37,17 @@ public class Main{
 			"Selec one option to start\n"+
 			"(1) to register employees\n"+
 			"(2) to dismiss employee\n"+
-			"(3) to add player to team\n"+
-			"(4) to \n" + //create a line up
+			"(3) to add employee to team\n"+
+			"(4) to create a line up\n" + 
 			"(5) to modify employees\n" +  
 			"(6) to show de the employee inforamtions about one person\n" +  
 			"(7) to show the all information about employees\n" +  
 			"(8) to show the all information about the team\n" +
+			"(9) to show line up\n" +
+			"(10) to \n"+// organizar los jugadores en los vestidores
+			"(11) to \n"+//mostrar como quedaron los vestidores
+			"(12) to \n"+//organizar los coach en las oficinas
+			"(13) to \n"+//mostrar los coachs en las oficinas
 			"(0) Exit"
 					);
 		option= sc.nextInt();
@@ -46,6 +55,13 @@ public class Main{
 		return option;
 	}
 
+
+	/**
+	 * depending on the option chosen, the program performs an option <br>
+	 * <b> pre: we need the value of the option variable </b> 
+	 * @param operation menu option
+	 * 
+	 */
 	public void executeOperation(int operation) {
 		String message="";
 		switch(operation) {
@@ -62,7 +78,7 @@ public class Main{
 			addplayertoteam();
 			break;
 		case 4:
-			
+			createlineup();
 			break;
 		case 5:
 			modifyElemnt();
@@ -79,7 +95,7 @@ public class Main{
 			
 			break;
 		case 9:
-
+			showLineup();
 			break;
 		case 10:
 
@@ -90,6 +106,9 @@ public class Main{
 		case 12:
 
 			break;
+		case 13:
+
+			break;
 		default:
 			System.out.println("Invalid option");
 		}
@@ -97,7 +116,10 @@ public class Main{
 
 
 
-
+	/**
+	 * asks the user for the information of the Footboll club to be registered <br>
+	 * <b> pre: we need the value of the option variable </b> 
+	 */
 	public void addFootballClub(){
 		String name, nit, foundationDate;
 
@@ -116,6 +138,10 @@ public class Main{
 		
 	}
 
+	/**
+	 * ask the user about the information of the employee to be registered <br>
+	 * <b> pre: we need the value of the option variable </b> 
+	 */
 	public void registerEmployee(){
 		System.out.println("********************");
 		System.out.println("Register information");
@@ -177,6 +203,10 @@ public class Main{
 		}
 	}
 
+	/**
+	 * ask the name of the person you want to fire<br>
+	 * <b> pre: we need the value of the option variable </b> 
+	 */
 	public void dismissEmployee(){
 
 		System.out.println("write the name of the person you are going to fire ");
@@ -185,13 +215,17 @@ public class Main{
 		System.out.println(message);
 
 	}
-	public void createTeam(){
+	/*public void createTeam(){
 		System.out.println("create team");
 		System.out.println("Write the name team");
 		String namepteam=sc.nextLine();
 
-	}
+	}*/
 
+	/**
+	 * add an employee to a team<br>
+	 * <b> pre: we need the value of the option variable </b> 
+	 */
 	public void addplayertoteam(){
 
 		System.out.println("add player to team");
@@ -204,14 +238,23 @@ public class Main{
 		
 	}
 
+
+	/**
+	 * show only one employee<br>
+	 * <b> pre: we need the value of the option variable </b> 
+	 */
 	public void showEmployee(){
 		System.out.println("write the employee name ");
 		String name=sc.nextLine();
 		String message = club.showEmployee(name);
 		System.out.println(message);
-
 	}
 
+
+	/**
+	 * show a team<br>
+	 * <b> pre: we need the value of the option variable </b> 
+	 */
 	public void showTeam() {
 		System.out.println("To teamA choose 1, or 2 for teamB");
 		int number = sc.nextInt();
@@ -220,26 +263,45 @@ public class Main{
 
 	}
 	
-	public void ingresalineup() {
+	/*public void ingresalineup() {
 		System.out.println("");
 		
-	}
+	}*/
 
+	/**
+	 * crear una alineacion <br>
+	 * <b> pre: we need the value of the option variable </b> 
+	 */
 	public void createlineup() {
-		System.out.println("Line up");
-		System.out.println("Write the line up date");
-		String date =sc.nextLine();
-		System.out.println("Write the line up");
-		System.out.println("How many deffensives players");
-		int deffensive = sc.nextInt();
-		System.out.println("How many midfelder");
-		int midfelder = sc.nextInt();
-		System.out.println("How many forward");
-		int forward = sc.nextInt();
-		
+        System.out.println("choose 1 to TeamA or 2 for TeamB");
+        int team =sc.nextInt();sc.nextLine();
+        System.out.println("Line up");
+        System.out.println("Write the line up date");
+        String date =sc.nextLine();
+        System.out.println("tatic (POSSESSION, COUNT_ATTACK, HIGH_PRESSURE,DEFAULT)");
+        String tactic = sc.nextLine().toUpperCase();
+        System.out.println("Write the line upseparate with -, for esxample 4-4-2");
+        String alineup = sc.nextLine();
+        String[] lineups = alineup.split("-");
+        int deffender = Integer.parseInt(lineups[0]);
+        int midfielder = Integer.parseInt(lineups[1]);
+        int forward = Integer.parseInt(lineups[2]);
+        System.out.println(club.createlineups(team,date,deffender,midfielder,forward,tactic));
+
+    }
+
+
+    public void showLineup(){
+    	System.out.println("Team");
+        int team =sc.nextInt();sc.nextLine();
+        System.out.println(club.showLineup(team));
 	}
 
 
+	/**
+	 * modificar los datos del empleado  <br>
+	 * <b> pre: we need the value of the option variable </b> 
+	 */
 	public void modifyElemnt() {
 		
 		int option;

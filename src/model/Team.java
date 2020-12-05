@@ -1,4 +1,5 @@
 package model;
+import java.util.*;
 public class Team {
 
 	//Constant
@@ -15,12 +16,14 @@ public class Team {
 	private Player [] players;
 	private AssistantCoach [] assistents;
 	private HeadCoach coach;
+	private ArrayList <Lineup> lineups;
 
 	public Team (String name){
 	this.name=name;
 	this.players = new Player [MAX_PLAYERS];
 	this.assistents= new AssistantCoach [MAX_ASSISTANTCOACH];
 	this.coach=null;
+	this.lineups= new ArrayList<Lineup>();
 	}
 
 	public String addHeadCoach(HeadCoach coach){
@@ -82,5 +85,21 @@ public class Team {
 		
 		return message;
 	}
+
+
+	public String addLineup (String date,int [][] lineup, String tactic){
+String message="the lineup was added";	
+lineups.add(new Lineup(date,lineup,tactic));
+return message;
+}
+
+public String showLineups(){
+String message = "";
+for(int i = 0; i<lineups.size(); i++){
+message += lineups.get(i).toString();
+}
+return message;
+
+}
 
 }

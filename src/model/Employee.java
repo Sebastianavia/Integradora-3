@@ -8,6 +8,14 @@ private double salary;
 private String status;
 private double precio;
 
+
+	/**
+	 * constructor method <br>
+	 * <b> pre: we need the atributes </b> 
+	 * @param name employee name
+	 * @param id employee id
+	 * @param salary employee salary
+	 */
 public  Employee(String name, String id, double salary){
 	this.name=name;
 	this.id=id;
@@ -39,6 +47,12 @@ public void setId(String id) {
 	this.id = id;
 }
 
+
+	/**
+	 * show employee information<br>
+	 * <b> pre: we need the Employee to have already been created </b> 
+	 * @return the employee information
+	 */
 @Override
 	public String toString(){
 	
