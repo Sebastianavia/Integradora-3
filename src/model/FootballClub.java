@@ -6,6 +6,9 @@ public class FootballClub{
 	private String name;
 	private String nit;
 	private String foundationDate;
+	private Player[][] rooma;
+	private Player[][] roomb;
+	private Coach [][] office;
 	
 
 	//obj//arraiz
@@ -14,14 +17,17 @@ public class FootballClub{
 	//relatinship
 	private Team[] teams;
 	private Lineup[][] lineup;
-
+	
+	private Coach[][] offices;
 	//Constructor
 
 
 	/**
-	 * constructor method <br>
-	 * <b> pre: we need the constants and relationships </b> 
-	 */
+     * constructor method <br>
+     * @param name clubs name
+     * @param nit clubs nit
+     * @param foundationDate clubs foundation date
+     */
 	public FootballClub(String name, String nit, String foundationDate){
 		this.name=name;
 		this.nit=nit;
@@ -31,6 +37,8 @@ public class FootballClub{
 		teams[0]=new Team ("TeamA");
 		teams[1]=new Team ("TeamB");
 		int [][]lineup = new int [Lineup.ROWS_IN__LINEUP][Lineup.COLUMNS_IN_LINEUP];
+		this.offices=new Coach [6][6];
+		
 	}
 
 	
@@ -317,7 +325,7 @@ public class FootballClub{
 	 * <b> pre: we need the Employee to have already been created </b> 
 	 * @param name Employee name
 	 * @param option chosen number
-	 * @param newyears new teams to charge 
+	 * @param newteams new teams to charge 
 	 * @return if the element is modify or not
 	 */	
 			public String modifyteams(String name, int option, int newteams) {
@@ -559,7 +567,6 @@ public class FootballClub{
 	/**
 	 * shows all employees<br>
 	 * <b> pre: we need the Employee to have already been created </b> 
-	 * @param name Employee name
 	 * @return if the element is modify or not
 	 */	
 	public String showEmployees(){
@@ -605,6 +612,13 @@ public class FootballClub{
 			
 			
 			    switch(deffender) {
+			    case 1:
+			    	lineup[8][3]=1;
+			    	break;
+			    case 2:			    	
+			    	lineup[8][2]=1;
+			    	lineup[8][4]=1;		   
+			    	break;
 			    case 3:
 			    	lineup[8][3]=1;
 			    	lineup[8][1]=1;
@@ -626,6 +640,9 @@ public class FootballClub{
 			    }
 			
 			    switch(midfielder) {
+			    case 1:
+			    	lineup[5][3]=1;
+			    	break;
 			    case 3:
 			    	lineup[5][3]=1;
 			    	lineup[5][1]=1;
@@ -669,6 +686,13 @@ public class FootballClub{
 			message=team.addLineup(date,lineup,tactic);
 			return message;
 	}
+
+	/**
+	 * shows all line up<br>
+	 *<b> pre:lienup already create  </b> 
+	 * @param option choose option 
+	 * @return the line up
+	 */	
 	public String showLineup(int option){
 	          String message = "";
 				Team team=null;
@@ -682,6 +706,48 @@ public class FootballClub{
 				        message=team.showLineups();
 	return message;
 	}
+
+	
+
+	/**
+     * set the coaches in their offices <br> 
+     */    
+    public void locateInTheOffices(){
+        boolean finder = false;
+        for(int i = 0; i<employees.size();i++){
+            if((employees.get(i) instanceof Coach)){
+                for(int j = 0; j < offices.length && !finder; j = j+2 ){
+                    for(int k = 0; j < offices[0].length && !finder; k = k+2){
+                        if(offices[j][k] == null){
+                            offices[j][k] = ((Coach)employees.get(i));
+                            finder = true;
+                        }
+                    }
+                }
+            }
+            finder = false;
+        }
+    }
+    /**
+     * show the coaches in their offices <br> 
+     * @return message, show the office
+     */    
+    public String showOffice(){
+        String message = "";
+        for (int i=0; i< offices.length; i++ ) {
+            for (int j = 0; j < offices[0].length; j++) {
+                if(offices[i][j] != null){
+                    message +=offices[i][j].getName()+"\t";
+            }
+            else{
+                message +="VACIO\t";
+            }
+                }
+                
+                message+="\n";
+            }
+            return message;
+    }
 	
 	
 }

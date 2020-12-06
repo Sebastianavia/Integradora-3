@@ -18,6 +18,12 @@ public class Team {
 	private HeadCoach coach;
 	private ArrayList <Lineup> lineups;
 
+	/**
+	 * constructor method <br>
+	 * <b> pre: we need the atributes </b> 
+	 * @param name teams name
+	 */
+
 	public Team (String name){
 	this.name=name;
 	this.players = new Player [MAX_PLAYERS];
@@ -25,13 +31,23 @@ public class Team {
 	this.coach=null;
 	this.lineups= new ArrayList<Lineup>();
 	}
-
+	/**
+	 * add a head coach to a team <br>
+	 * <b> pre: head coach has to be already defined </b> 
+	 * @param coach the head coach to add
+	 * @return confirmation of adding
+	 */
 	public String addHeadCoach(HeadCoach coach){
 		String message="add head coach to team";
 		this.coach=coach;
 		return message;
 	}
-
+	/**
+	 * add a head coach to a team <br>
+	 * <b> pre: head coach has to be already defined </b> 
+	 * @param assistent the head coach to add
+	 * @return confirmation of adding
+	 */
 	public String addAssistentCoach(AssistantCoach assistent){
 		String message="";
 		boolean empty=false;
@@ -48,6 +64,13 @@ public class Team {
       return message;
 	}
 
+
+	/**
+	 * add a player to a team <br>
+	 * <b> pre: player has to be already defined </b> 
+	 * @param player the player to add
+	 * @return confirmation of adding
+	 */
 	public String addPlayer(Player player){
 		String message="";
 		boolean empty=false;
@@ -65,6 +88,10 @@ public class Team {
 		}
 
 
+		/**
+	 	* show the team information<br> 
+	 	* @return a message with the team information
+	 	*/
 		public String showTeam() {
 		String message ="\n *************"+
 						"\n **Employess**"+
@@ -86,20 +113,27 @@ public class Team {
 		return message;
 	}
 
-
+	/**
+	 * add a lineup to a team<br>
+	 * <b> pre: the lineup has to be already defined </b> 
+	 * @param date the lineups date of creation 
+	 * @param lineup the lineup to add
+	 * @param tactic the lineup tactic
+	 * @return confirmation of adding
+	 */
 	public String addLineup (String date,int [][] lineup, String tactic){
-String message="the lineup was added";	
-lineups.add(new Lineup(date,lineup,tactic));
-return message;
-}
+		String message="the lineup was added";	
+		lineups.add(new Lineup(date,lineup,tactic));
+		return message;
+	}
 
-public String showLineups(){
-String message = "";
-for(int i = 0; i<lineups.size(); i++){
-message += lineups.get(i).toString();
-}
-return message;
+	public String showLineups(){
+		String message = "";
+		for(int i = 0; i<lineups.size(); i++){
+			message += lineups.get(i).toString();
+		}
+		return message;
 
-}
+	}
 
 }

@@ -44,10 +44,10 @@ public class Main{
 			"(7) to show the all information about employees\n" +  
 			"(8) to show the all information about the team\n" +
 			"(9) to show line up\n" +
-			"(10) to \n"+// organizar los jugadores en los vestidores
-			"(11) to \n"+//mostrar como quedaron los vestidores
-			"(12) to \n"+//organizar los coach en las oficinas
-			"(13) to \n"+//mostrar los coachs en las oficinas
+			"(10) to create to office\n"+// organizar los jugadores en los vestidores
+			"(11) to show office\n"+//mostrar como quedaron los vestidores
+			
+			
 			"(0) Exit"
 					);
 		option= sc.nextInt();
@@ -98,16 +98,10 @@ public class Main{
 			showLineup();
 			break;
 		case 10:
-
+			club.locateInTheOffices();
 			break;
 		case 11:
-
-			break;
-		case 12:
-
-			break;
-		case 13:
-
+			System.out.println(club.showOffice());
 			break;
 		default:
 			System.out.println("Invalid option");
@@ -280,7 +274,7 @@ public class Main{
         String date =sc.nextLine();
         System.out.println("tatic (POSSESSION, COUNT_ATTACK, HIGH_PRESSURE,DEFAULT)");
         String tactic = sc.nextLine().toUpperCase();
-        System.out.println("Write the line upseparate with -, for esxample 4-4-2");
+        System.out.println("Write the line up separate with -, for esxample 4-4-2");
         String alineup = sc.nextLine();
         String[] lineups = alineup.split("-");
         int deffender = Integer.parseInt(lineups[0]);
@@ -290,9 +284,12 @@ public class Main{
 
     }
 
-
+    /**
+	 * show a line up<br>
+	 * <b> pre: we need the value of the option variable </b> 
+	 */
     public void showLineup(){
-    	System.out.println("Team");
+    	System.out.println("choose team 1 to A or 2 to B");
         int team =sc.nextInt();sc.nextLine();
         System.out.println(club.showLineup(team));
 	}
@@ -383,7 +380,6 @@ public class Main{
 			break;	
 		}	
 	}//cierra el metodo modificar
-
 
 
 	
